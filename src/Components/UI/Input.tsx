@@ -1,19 +1,14 @@
-import { IFormInput } from "../../Interfaces/interfaces";
+import { InputHTMLAttributes } from "react";
 
-function Input({ label, type, id, name }: IFormInput) {
+interface IProps extends InputHTMLAttributes<HTMLInputElement> {}
+
+const InputForm = ({ ...rest }: IProps) => {
   return (
-    <div>
-      <label className="text-sm mb-1 block font-medium " htmlFor={id}>
-        {label}
-      </label>
-      <input
-        className="block border-2 border-gray-400 w-full h-8 rounded-md focus:border-indigo-500 focus:outline-none"
-        type={type}
-        name={name}
-        id={id}
-      />
-    </div>
+    <input
+      className="block border-2 border-gray-400 w-full h-8 rounded-md focus:border-indigo-500 focus:outline-none"
+      {...rest}
+    />
   );
-}
+};
 
-export default Input;
+export default InputForm;

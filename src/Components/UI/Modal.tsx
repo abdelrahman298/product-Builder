@@ -1,7 +1,6 @@
 import {
   Dialog,
   DialogPanel,
-  DialogTitle,
   Transition,
   TransitionChild,
 } from "@headlessui/react";
@@ -14,7 +13,7 @@ interface IModal {
   children?: ReactNode;
 }
 
-const Modal = ({ title, isOpen, closeModal, children }: IModal) => {
+const Modal = ({ isOpen, closeModal, children }: IModal) => {
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -43,58 +42,7 @@ const Modal = ({ title, isOpen, closeModal, children }: IModal) => {
                 leaveTo="opacity-0 scale-95"
               >
                 <DialogPanel className="w-1/2 max-w-sm transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  {title && (
-                    <DialogTitle
-                      as="h3"
-                      className="text-lg font-medium leading-6 text-gray-900"
-                    >
-                      Add A NEW PRODUCT
-                    </DialogTitle>
-                  )}
-
                   {children}
-
-                  {/* <div className="mt-4">
-                    <Input
-                      label="Product Title"
-                      id="prod-title"
-                      type="text"
-                      name="prod-title"
-                    />
-                  </div>
-                  <div className="mt-4">
-                    <Input
-                      label="Product Description"
-                      id="prod-description"
-                      type="text"
-                      name="prod-description"
-                    />
-                  </div>{" "}
-                  <div className="mt-4">
-                    <Input
-                      label="Product Image URL"
-                      id="prod-img-url"
-                      type="text"
-                      name="prod-img-url"
-                    />
-                  </div>{" "}
-                  <div className="mt-4">
-                    <Input
-                      label="Product Price"
-                      id="prod-price"
-                      type="text"
-                      name="prod-price"
-                    />
-                  </div> */}
-                  {/* <div className="mt-4">
-                    <button
-                      type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                      onClick={closeModal}
-                    >
-                      Got it, thanks!
-                    </button>
-                  </div> */}
                 </DialogPanel>
               </TransitionChild>
             </div>
